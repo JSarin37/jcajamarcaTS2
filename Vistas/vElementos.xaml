@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jcajamarcaTS2.Vistas.vElementos">
+    <ScrollView Margin="20">
+        <StackLayout>
+            <Label 
+     Text="UISRAEL"
+            FontAttributes="Bold"
+     TextColor="DarkBlue"
+     FontSize="24"
+     HorizontalTextAlignment="Center"/>
+        <Picker x:Name="pkAlumnos" 
+                Title="ALUMNOS"
+                SelectedIndexChanged="pkAlumnos_SelectedIndexChanged">
+            
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                <x:String>Julio Cajamarca</x:String>
+                <x:String>Maritza Ortiz</x:String>
+                <x:String>Juan Echeverria</x:String>
+                <x:String>Jorge Cuenca</x:String>
+                <x:String>Marcelo Rios</x:String>
+                </x:Array>
+                </Picker.ItemsSource>
+        </Picker>
+        <Label 
+     Text="PARCIAL1"
+     TextColor="Blue"
+     FontSize="18"
+     HorizontalTextAlignment="Center"/>
+            <Label Text="Nota de Seguimiento 1" Margin="15,10"/>
+        <Border Stroke="DarkBlue" 
+                StrokeThickness="1" >
+            <Entry               
+                x:Name="txtSeguimiento1"
+                Keyboard="Numeric"               
+                Placeholder="Ingrese la nota de seguimiento 1"
+               />
+            </Border>
+            
+        <Label Text="Nota de Examen 1" Margin="15,10"/>
+        <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Entry
+                x:Name="txtExamen1"
+                Keyboard="Numeric"
+                Placeholder="Ingrese la nota del examen 1"/>
+        </Border>
+        <Label Text="Nota del Parcial 1" Margin="15,10"/>
+        <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Entry
+        x:Name="txtParcial1"
+                TextColor="DarkBlue"
+                Keyboard="Numeric"
+                Placeholder="Nota del parcial 1"/>
+        </Border>
+        <Button x:Name="btnParcial1"
+         Text="PARCIAL1"
+         Clicked="btnParcial1_Clicked"
+                Margin="60"/>
+        <Label Text="Nota de Seguimiento 2" Margin="15,10"/>
+        <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Entry
+        x:Name="txtSeguimiento2"
+                Keyboard="Numeric"
+        Placeholder="Ingrese la nota de seguimiento 2"/>
+        </Border>
+        <Label Text="Nota de Examen 2" Margin="15,10"/>
+        <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Entry
+        x:Name="txtExamen2"
+                Keyboard="Numeric"
+        Placeholder="Ingrese la nota del examen 2"/>
+        </Border>
+        <Label Text="Nota del Parcial 2" Margin="15,10"/>
+        <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Entry
+         x:Name="txtParcial2"
+                Keyboard="Numeric"
+         Placeholder="Nota del parcial 2"/>
+        </Border>
+
+        <Button x:Name="btnParcial2"
+         Text="PARCIAL2"
+         Clicked="btnParcial2_Clicked"
+                Margin="60"/>
+        <Label x:Name="resultado"
+               Text="Resultado"/>
+            <Label Text="NOTA FINAL" Margin="15,10"/>
+            <Border Stroke="DarkBlue" StrokeThickness="1">
+                <Entry
+                    x:Name="txtNotaFinal"
+                    Placeholder="Nota del parcial 2"/>
+            </Border>
+            <Label Text="ESTADO" Margin="15,10"/>
+            <Border Stroke="DarkBlue" StrokeThickness="1">
+                <Entry
+                    x:Name="txtEstado"
+                    Placeholder="Estado del Alumno"/>
+            </Border>
+            <DatePicker x:Name="dpFecha" 
+                MinimumDate="{Binding MinDate}" 
+                        MaximumDate="{Binding MaxDate}" 
+                        Date="{Binding SelectedDate}" />
+            <Button x:Name="btnEstado"
+                 Text="ESTADO"
+                 Clicked="btnEstado_Clicked"
+                 Margin="60"/>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

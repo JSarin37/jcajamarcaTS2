@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jcajamarcaTS2.Vistas.vLogin"
+             >
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+
+        <Label 
+            Text="LOGIN"
+            HorizontalTextAlignment="Center"
+            FontSize="20"
+            FontAttributes="Bold"
+            TextColor="DarkBlue"/>
+        <Image Source="login.png"
+               HeightRequest="100"/>
+        <Label Text="Usuario" Margin="15,10"/>
+        <Border Stroke="Black" StrokeThickness="1">
+            <Entry x:Name="txtUsuario"
+               Placeholder="Ingrese Usuario"
+               MaxLength="7"
+                   Margin="10"/>
+        </Border>
+        <Label Text="Contraseña" Margin="15,10"/>
+        <Border Stroke="Black" StrokeThickness="1">
+        <Entry x:Name="txtContraseña"
+               Placeholder="Ingrese la Contraseña"
+               IsPassword="True"
+                Margin="10"/>
+        </Border>
+        <Button x:Name="btnInicio"
+                Text="INICIAR SESION"
+                Clicked="btnInicio_Clicked"
+                    Margin="40"/>
+    </VerticalStackLayout>
+</ContentPage>
