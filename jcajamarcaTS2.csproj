@@ -58,6 +58,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\login.png" />
+	  <None Remove="Resources\Images\loginbuttons.jpg" />
+	  <None Remove="Resources\Images\uisrael.png" />
 	</ItemGroup>
 
 	<ItemGroup>

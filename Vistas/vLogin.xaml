@@ -6,31 +6,29 @@
     <VerticalStackLayout
         Padding="30,0"
         Spacing="25">
-
-        <Label 
-            Text="LOGIN"
-            HorizontalTextAlignment="Center"
-            FontSize="20"
-            FontAttributes="Bold"
-            TextColor="DarkBlue"/>
         <Image Source="login.png"
-               HeightRequest="100"/>
+               HeightRequest="200"/>
         <Label Text="Usuario" Margin="15,10"/>
-        <Border Stroke="Black" StrokeThickness="1">
+        <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
             <Entry x:Name="txtUsuario"
+                   WidthRequest="200"
+                   HeightRequest="40"                  
                Placeholder="Ingrese Usuario"
                MaxLength="7"
-                   Margin="10"/>
-        </Border>
+                   Margin="5"/>
+        </Frame>
         <Label Text="Contraseña" Margin="15,10"/>
-        <Border Stroke="Black" StrokeThickness="1">
-        <Entry x:Name="txtContraseña"
+        <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+            <Entry x:Name="txtContraseña"
+               WidthRequest="200"
+               HeightRequest="40"  
                Placeholder="Ingrese la Contraseña"
                IsPassword="True"
                 Margin="10"/>
-        </Border>
+        </Frame>
         <Button x:Name="btnInicio"
                 Text="INICIAR SESION"
+                CornerRadius="30"
                 Clicked="btnInicio_Clicked"
                     Margin="40"/>
     </VerticalStackLayout>

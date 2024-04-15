@@ -9,43 +9,49 @@ public partial class vElementos : ContentPage
 	{
 		InitializeComponent();
 	}
-
-private void btnParcial1_Clicked(object sender, EventArgs e)
+    private void OnNumeroChanged(object sender, TextChangedEventArgs e)
     {
-        int valorMaximo = 10; 
-        int valorMinimo = 1; 
-        if (Int32.TryParse(txtSeguimiento1.Text, out int seguimiento1))
+        if (!Double.TryParse(e.NewTextValue, out Double nota) || nota < 1 || nota > 10)
         {
-            if (seguimiento1 > valorMaximo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Seguimiento 1 es mayor que " + valorMaximo, "OK");
-            }
-            else if (seguimiento1 < valorMinimo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Seguimiento 1 es menor que " + valorMinimo, "OK");
-            }
+            errorMessageLabel.Text = "El nota debe estar entre 1 y 10";
+            errorMessageLabel1.Text = "El nota debe estar entre 1 y 10";
+            errorMessageLabel2.Text = "El nota debe estar entre 1 y 10";
+            errorMessageLabel3.Text = "El nota debe estar entre 1 y 10";
         }
         else
         {
-             DisplayAlert("Error", "Introduce un valor válido", "OK");
+            errorMessageLabel.Text = string.Empty;
+            errorMessageLabel1.Text = string.Empty;
+            errorMessageLabel2.Text = string.Empty;
+            errorMessageLabel3.Text = string.Empty;
+        }
+    }
+
+    private void btnParcial1_Clicked(object sender, EventArgs e)
+    {
+        if (!Double.TryParse(txtSeguimiento1.Text, out Double nota1) || nota1 < 1 || nota1 > 10)
+        {
+            errorMessageLabel.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel1.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel2.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel3.Text = "La nota debe estar entre 1 y 10";
+            DisplayAlert("Alerta", "Ingrese los valores correctamente", "cerrar");
+            return;
+
         }
 
-        if (Int32.TryParse(txtExamen1.Text, out int examen1))
+      
+        if (!Double.TryParse(txtExamen1.Text, out Double examen1) || examen1 < 1 || examen1 > 10)
         {
-            if (examen1 > valorMaximo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Exámen 1 es mayor que " + valorMaximo, "OK");
-            }
-            else if (examen1 < valorMinimo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Exámen 1 es menor que " + valorMinimo, "OK");
-            }
- 
+            errorMessageLabel.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel1.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel2.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel3.Text = "La nota debe estar entre 1 y 10";
+            DisplayAlert("Alerta", "Ingrese los valores correctamente", "cerrar");
+            return;
         }
-        else
-        {
-             DisplayAlert("Error", "Introduce un valor válido", "OK");
-        }
+
+
 
         if (pkAlumnos.SelectedIndex == -1)
         {
@@ -55,13 +61,13 @@ private void btnParcial1_Clicked(object sender, EventArgs e)
         {
             try
             {
-                Double a = float.Parse(txtSeguimiento1.Text);
-                Double b = float.Parse(txtExamen1.Text);
-                Double c;
+                Double seg1 = float.Parse(txtSeguimiento1.Text);
+                Double exa1= float.Parse(txtExamen1.Text);
+                Double par1;
                 {
-                    c = a*0.3 + b*0.2;
-                    string cR = c.ToString("F2");
-                    txtParcial1.Text = cR.ToString();
+                    par1 = seg1 * 0.3 + exa1 * 0.2;
+                    string parR = par1.ToString("F2");
+                    txtParcial1.Text = parR.ToString();
                 }
                
             }
@@ -73,89 +79,58 @@ private void btnParcial1_Clicked(object sender, EventArgs e)
         }
      
     }
-    private void pkAlumnos_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        txtSeguimiento1.Text = string.Empty;
-        txtExamen1.Text = string.Empty;
-        txtParcial1.Text = string.Empty ;
-        txtSeguimiento2 .Text = string.Empty ;
-        txtExamen2 .Text = string.Empty ;
-        txtParcial2 .Text = string.Empty ;
-        txtNotaFinal.Text = string.Empty ;
-    }
+
 
     private void btnParcial2_Clicked(object sender, EventArgs e)
     {
-        int valorMaximo = 10;
-        int valorMinimo = 1;
-
-        if (Int32.TryParse(txtSeguimiento2.Text, out int seguimiento2))
+        if (!Double.TryParse(txtSeguimiento2.Text, out Double notaP2) || notaP2 < 1 || notaP2 > 10)
         {
-            if (seguimiento2 > valorMaximo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Seguimiento 2 es mayor que " + valorMaximo, "OK");
-            }
-            else if (seguimiento2 < valorMinimo)
-            {
+            errorMessageLabel.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel1.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel2.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel3.Text = "La nota debe estar entre 1 y 10";
+            DisplayAlert("Alerta", "Ingrese los valores correctamente", "cerrar");
+            return;
 
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Seguimiento 2 es menor que " + valorMinimo, "OK");
-            }
         }
-        else
+        if (!Double.TryParse(txtExamen2.Text, out Double examenP2) || examenP2 < 1 || examenP2 > 10)
         {
-            DisplayAlert("Error", "Introduce un valor válido", "OK");
+            errorMessageLabel.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel1.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel2.Text = "La nota debe estar entre 1 y 10";
+            errorMessageLabel3.Text = "La nota debe estar entre 1 y 10";
+            DisplayAlert("Alerta", "Ingrese los valores correctamente", "cerrar");
+            return;
         }
-
-        if (Int32.TryParse(txtExamen2.Text, out int examen2))
-        {
-            if (examen2 > valorMaximo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Exámen 2 es mayor que " + valorMaximo, "OK");
-            }
-            else if (examen2 < valorMinimo)
-            {
-                DisplayAlert("Validación", "El valor ingresado en la Nota de Exámen 2 es menor que " + valorMinimo, "OK");
-            }
-        }
-        else
-        {
-            DisplayAlert("Error", "Introduce un valor válido", "OK");
-        }
-
         if (pkAlumnos.SelectedIndex == -1)
         {
             DisplayAlert("Alerta", "Seleccione un Alumno", "cerrar");
-            
         }
         else
         {
            
 
-            Double h = float.Parse(txtSeguimiento2.Text);
-            Double i = float.Parse(txtExamen2.Text);
-            Double j;
-            Double k = float.Parse(txtParcial1.Text);
-            //Double l = float.Parse(txtParcial2.Text);
-            Double m;
-            string kR = Math.Round(k, 2).ToString("#.0");
-            //string lR = Math.Round(l, 2).ToString("#.0");
-                       
-                    j = h * 0.3 + i * 0.2;
-                    string jR = j.ToString("F2");
-                    txtParcial2.Text = jR.ToString();
-     
-                    m = k + j;
-                    string mR = m.ToString("F2");
+            Double seg2 = float.Parse(txtSeguimiento2.Text);
+            Double exa2 = float.Parse(txtExamen2.Text);
+            Double par2;
+            Double par1S2 = float.Parse(txtParcial1.Text);
+            Double nfin;
+            string par1S2R = par1S2.ToString("F2");
+            par2 = seg2 * 0.3 + exa2 * 0.2;
+                    string par2R = par2.ToString("F2");
+                    txtParcial2.Text = par2R.ToString();
 
-                    txtNotaFinal.Text = mR.ToString();
-                    string estado;
-                    
+            nfin = par1S2 + par2;
+                    string nfinR = nfin.ToString("F2");
 
-                    if (m >= 7)
+                    txtNotaFinal.Text = nfinR.ToString();
+                    string estado;                
+
+                    if (nfin >= 7)
                     {
                         estado = "Aprobado";
                     }
-                    else if (m >= 5 && m <= 6.9)
+                    else if (nfin >= 5 && nfin <= 6.9)
                     {
                         estado = "Complementario";
                     }
@@ -164,11 +139,22 @@ private void btnParcial1_Clicked(object sender, EventArgs e)
                         estado = "REPROBADO";
                     }
 
-           txtEstado.Text = estado.ToString();
-            // DisplayAlert("RESULTADO", "PRIMER PARCIAL: " + kR + "\n SEGUNDO PARCIAL: " + m + " \n NOTA FINAL: " + mR + "\n ESTADO: " + estado + "\n Fecha " + fecha, "Cerrar");
+           txtEstado.Text = estado.ToString();       
 
         }
          
+    }
+    private bool validateEntry = true;
+    private void pkAlumnos_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        validateEntry = false;
+        txtSeguimiento1.Text = string.Empty;
+        txtExamen1.Text = string.Empty;
+        txtParcial1.Text = string.Empty;
+        txtSeguimiento2.Text = string.Empty;
+        txtExamen2.Text = string.Empty;
+        txtParcial2.Text = string.Empty;
+        txtNotaFinal.Text = string.Empty;
     }
 
     private void btnEstado_Clicked(object sender, EventArgs e)

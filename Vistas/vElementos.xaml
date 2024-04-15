@@ -4,14 +4,11 @@
              x:Class="jcajamarcaTS2.Vistas.vElementos">
     <ScrollView Margin="20">
         <StackLayout>
-            <Label 
-     Text="UISRAEL"
-            FontAttributes="Bold"
-     TextColor="DarkBlue"
-     FontSize="24"
-     HorizontalTextAlignment="Center"/>
-        <Picker x:Name="pkAlumnos" 
-                Title="ALUMNOS"
+            <Image Source="uisrael.png"
+               HeightRequest="100"/>
+            <Picker x:Name="pkAlumnos" 
+                Title="SELECCIONE EL ALUMNO"
+                TextColor="DarkBlue"
                 SelectedIndexChanged="pkAlumnos_SelectedIndexChanged">
             
             <Picker.ItemsSource>
@@ -24,90 +21,115 @@
                 </x:Array>
                 </Picker.ItemsSource>
         </Picker>
-        <Label 
-     Text="PARCIAL1"
-     TextColor="Blue"
-     FontSize="18"
-     HorizontalTextAlignment="Center"/>
             <Label Text="Nota de Seguimiento 1" Margin="15,10"/>
-        <Border Stroke="DarkBlue" 
-                StrokeThickness="1" >
-            <Entry               
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry               
                 x:Name="txtSeguimiento1"
+                    WidthRequest="200"
+                    HeightRequest="40" 
+                Text="{Binding Numero}" TextChanged="OnNumeroChanged" 
                 Keyboard="Numeric" 
                 Placeholder="Ingrese la nota de seguimiento 1"
                />
-            </Border>
-            
-        <Label Text="Nota de Examen 1" Margin="15,10"/>
-        <Border Stroke="DarkBlue" StrokeThickness="1">
-            <Entry
+            </Frame>
+            <Label x:Name="errorMessageLabel" TextColor="Red" />
+            <Label Text="Nota de Examen 1" Margin="15,10"/>
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry
                 x:Name="txtExamen1"
+                   WidthRequest="200"
+                   HeightRequest="40" 
                 Keyboard="Numeric"
+                Text="{Binding Numero}" TextChanged="OnNumeroChanged" 
                 Placeholder="Ingrese la nota del examen 1"/>
-        </Border>
-        <Label Text="Nota del Parcial 1" Margin="15,10"/>
-        <Border Stroke="DarkBlue" StrokeThickness="1">
-            <Entry
+            </Frame>
+            <Label x:Name="errorMessageLabel1" TextColor="Red" />
+            <Label Text="Nota del Parcial 1" Margin="15,10"/>
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry
         x:Name="txtParcial1"
                 TextColor="DarkBlue"
+                FontAttributes="Bold"
+                 WidthRequest="200"
+                 HeightRequest="40"
                 Keyboard="Numeric"
                 Placeholder="Nota del parcial 1"/>
-        </Border>
-        <Button x:Name="btnParcial1"
+            </Frame>
+            <Button x:Name="btnParcial1"
          Text="PARCIAL1"
          Clicked="btnParcial1_Clicked"
+                CornerRadius="30"
                 Margin="60"/>
         <Label Text="Nota de Seguimiento 2" Margin="15,10"/>
-        <Border Stroke="DarkBlue" StrokeThickness="1">
-            <Entry
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry
         x:Name="txtSeguimiento2"
                 Keyboard="Numeric"
+                 WidthRequest="200"
+                 HeightRequest="40"
+                Text="{Binding Numero}" TextChanged="OnNumeroChanged" 
         Placeholder="Ingrese la nota de seguimiento 2"/>
-        </Border>
+            </Frame>
+            <Label x:Name="errorMessageLabel2" TextColor="Red" />
         <Label Text="Nota de Examen 2" Margin="15,10"/>
-        <Border Stroke="DarkBlue" StrokeThickness="1">
-            <Entry
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry
         x:Name="txtExamen2"
                 Keyboard="Numeric"
+                 WidthRequest="200"
+                 HeightRequest="40"
+                Text="{Binding Numero}" TextChanged="OnNumeroChanged" 
         Placeholder="Ingrese la nota del examen 2"/>
-        </Border>
+            </Frame>
+            <Label x:Name="errorMessageLabel3" TextColor="Red" />
         <Label Text="Nota del Parcial 2" Margin="15,10"/>
-        <Border Stroke="DarkBlue" StrokeThickness="1">
-            <Entry
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                <Entry
          x:Name="txtParcial2"
                 Keyboard="Numeric"
+                 WidthRequest="200"
+                 HeightRequest="40"
+                TextColor="DarkBlue"
+                FontAttributes="Bold"
          Placeholder="Nota del parcial 2"/>
-        </Border>
+            </Frame>
 
-        <Button x:Name="btnParcial2"
+            <Button x:Name="btnParcial2"
          Text="PARCIAL2"
          Clicked="btnParcial2_Clicked"
+                CornerRadius="30"
                 Margin="60"/>
         <Label x:Name="resultado"
                Text="Resultado"/>
             <Label Text="NOTA FINAL" Margin="15,10"/>
-            <Border Stroke="DarkBlue" StrokeThickness="1">
+            <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
                 <Entry
                     x:Name="txtNotaFinal"
+                 WidthRequest="200"
+                 HeightRequest="40"
+                TextColor="DarkBlue"
+                FontAttributes="Bold"
                     Placeholder="Nota del parcial 2"/>
-            </Border>
+            </Frame>
             <Label Text="ESTADO" Margin="15,10"/>
-            <Border Stroke="DarkBlue" StrokeThickness="1">
-                <Entry
+                <Frame BackgroundColor="White" CornerRadius="50" HeightRequest="45" WidthRequest="300">
+                    <Entry
                     x:Name="txtEstado"
+                TextColor="DarkBlue"
+                 WidthRequest="200"
+                 HeightRequest="40"
+                FontAttributes="Bold"
                     Placeholder="Estado del Alumno"/>
-            </Border>
+            </Frame>
             <DatePicker x:Name="dpFecha" 
                 MinimumDate="{Binding MinDate}" 
                         MaximumDate="{Binding MaxDate}" 
                         Date="{Binding SelectedDate}" />
             <Button x:Name="btnEstado"
                  Text="ESTADO"
+                 CornerRadius="30"
                  Clicked="btnEstado_Clicked"
                  Margin="60"/>
-
-
         </StackLayout>
     </ScrollView>
 </ContentPage>
